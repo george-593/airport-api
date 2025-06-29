@@ -23,3 +23,6 @@
 # Logs
 logs
 *.log
+
+# Vscode
+.vscode/settings.json
