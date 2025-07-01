@@ -15,7 +15,8 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "loadAirports": "node utils/loadAirports.js"
   },
   "dependencies": {
     "dotenv": "^17.0.0",

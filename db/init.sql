@@ -1,10 +1,11 @@
 CREATE TABLE public.airports (
     id SERIAL PRIMARY KEY,
+    source_id INT UNIQUE,
     airportName varchar(255),
     city varchar(255),
     country varchar(255),
-    IATA varchar(3),
-    ICAO varchar(4),
+    IATA varchar(255),
+    ICAO varchar(255),
     latitude varchar(255),
     longitude varchar(255),
     altitude varchar(255),
