@@ -12,5 +12,5 @@ CREATE TABLE public.airports (
     DST varchar(255),
     tzDBTimezone varchar(255),
     airportType varchar(255),
-    source varchar(255),
+    source varchar(255)
 )
