@@ -60,8 +60,6 @@ async function insertAirports(data) {
       const placeholders = batch.map((row, index) => {
         const offset = index * 14;
 
-        console.log(row);
-
         // Push values in the same order as your INSERT fields
         values.push(
           row.id,
@@ -88,9 +86,9 @@ async function insertAirports(data) {
 
       const query = `
         INSERT INTO airports (
-          sourceID, airportName, city, country, IATA, ICAO,
+          source_id, airport_name, city, country, iata, icao,
           latitude, longitude, altitude, timezone,
-          DST, tzDBTimezone, airportType, source
+          DST, tzdb_timezone, airport_type, source
         ) VALUES ${placeholders.join(", ")}
       `;
 
