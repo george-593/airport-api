@@ -26,3 +26,6 @@ logs
 
 # Vscode
 .vscode/settings.json
+
+# Data
+data/*
