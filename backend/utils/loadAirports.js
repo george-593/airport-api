@@ -2,6 +2,7 @@ require("dotenv").config({ path: "../.env" });
 
 const fs = require("fs/promises");
 const db = require("./db/db");
+const { exit } = require("process");
 
 const DATA_PATH = "../" + process.env.DATA_PATH;
 // The size of requests to insert into the DB
@@ -87,7 +88,7 @@ async function insertAirports(data) {
 
       const query = `
         INSERT INTO airports (
-          source_id, airportName, city, country, IATA, ICAO,
+          sourceID, airportName, city, country, IATA, ICAO,
           latitude, longitude, altitude, timezone,
           DST, tzDBTimezone, airportType, source
         ) VALUES ${placeholders.join(", ")}
@@ -106,6 +107,7 @@ async function main() {
   const airports = await loadAirportsFromFile();
   console.log(`Parsed ${airports.length} values from data`);
   await insertAirports(airports);
+  exit();
 }
 
 main().catch(console.error);

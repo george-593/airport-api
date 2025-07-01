@@ -1,6 +1,6 @@
 CREATE TABLE public.airports (
     id SERIAL PRIMARY KEY,
-    source_id INT UNIQUE,
+    sourceID INT UNIQUE,
     airportName varchar(255),
     city varchar(255),
     country varchar(255),
