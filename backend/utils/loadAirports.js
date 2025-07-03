@@ -51,6 +51,20 @@ async function loadAirportsFromFile() {
   return airports;
 }
 
+// Wait for the db to be online before we do any DB requests
+async function waitForDb(retries = 10) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      await db.query("SELECT 1");
+      return;
+    } catch (err) {
+      console.log(`DB not ready yet, retrying (${i + 1}/${retries})...`);
+      await new Promise((res) => setTimeout(res, 3000));
+    }
+  }
+  throw new Error("DB connection timed out");
+}
+
 async function insertAirports(data) {
   try {
     for (let i = 0; i < data.length; i += BATCH_SIZE) {
@@ -104,6 +118,8 @@ async function insertAirports(data) {
 async function main() {
   const airports = await loadAirportsFromFile();
   console.log(`Parsed ${airports.length} values from data`);
+  await waitForDb();
+  console.log("DB online");
   await insertAirports(airports);
   exit();
 }
