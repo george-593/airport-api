@@ -19,6 +19,7 @@
     "loadAirports": "node utils/loadAirports.js"
   },
   "dependencies": {
+    "body-parser": "^2.2.0",
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "pg": "^8.16.3"
