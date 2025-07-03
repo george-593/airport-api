@@ -28,4 +28,4 @@ logs
 .vscode/settings.json
 
 # Data
-data/*
+*/data/*

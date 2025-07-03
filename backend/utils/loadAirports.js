@@ -4,7 +4,7 @@ const fs = require("fs/promises");
 const db = require("./db/db");
 const { exit } = require("process");
 
-const DATA_PATH = "../" + process.env.DATA_PATH;
+const DATA_PATH = process.env.DATA_PATH;
 // The size of requests to insert into the DB
 BATCH_SIZE = 1000;
 
