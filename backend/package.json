@@ -16,7 +16,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "loadAirports": "node utils/loadAirports.js"
+    "loadAirports": "node utils/loadAirports.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
